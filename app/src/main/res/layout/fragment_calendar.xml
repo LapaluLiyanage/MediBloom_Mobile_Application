@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Header -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="@drawable/bg_header_gradient"
+        android:paddingTop="48dp" android:paddingBottom="20dp" android:paddingHorizontal="20dp"
+        android:orientation="horizontal" android:gravity="center_vertical">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="Calendar"
+            android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp" android:paddingBottom="32dp">
+
+            <!-- Calendar Card -->
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+
+                    <!-- Month Navigation -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <ImageView android:id="@+id/btn_prev_month" android:layout_width="40dp"
+                            android:layout_height="40dp" android:src="@android:drawable/ic_media_previous"
+                            android:tint="@color/text_secondary" android:background="@drawable/bg_day_empty"
+                            android:padding="8dp" android:clickable="true" android:focusable="true" />
+                        <TextView android:id="@+id/tv_month_year" android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:layout_weight="1"
+                            android:gravity="center" android:text="February 2026"
+                            android:textSize="16sp" android:textStyle="bold" android:textColor="@color/text_primary" />
+                        <ImageView android:id="@+id/btn_next_month" android:layout_width="40dp"
+                            android:layout_height="40dp" android:src="@android:drawable/ic_media_next"
+                            android:tint="@color/text_secondary" android:background="@drawable/bg_day_empty"
+                            android:padding="8dp" android:clickable="true" android:focusable="true" />
+                    </LinearLayout>
+
+                    <!-- Calendar Grid -->
+                    <GridLayout android:id="@+id/calendar_grid"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:columnCount="7" />
+
+                    <!-- Legend -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginTop="16dp"
+                        android:paddingTop="16dp">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="horizontal" android:gravity="center">
+                            <View android:layout_width="14dp" android:layout_height="14dp"
+                                android:background="@drawable/bg_day_taken" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text=" Taken" android:textSize="11sp" android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="horizontal" android:gravity="center">
+                            <View android:layout_width="14dp" android:layout_height="14dp"
+                                android:background="@drawable/bg_day_missed" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text=" Missed" android:textSize="11sp" android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="horizontal" android:gravity="center">
+                            <View android:layout_width="14dp" android:layout_height="14dp"
+                                android:background="@drawable/bg_day_partial" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text=" Partial" android:textSize="11sp" android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Monthly Summary -->
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" app:cardCornerRadius="20dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Monthly Summary" android:textSize="16sp" android:textStyle="bold"
+                        android:textColor="@color/text_primary" android:layout_marginBottom="16dp" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                            <TextView android:id="@+id/tv_days_taken" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="0"
+                                android:textSize="24sp" android:textStyle="bold" android:textColor="#4CAF50" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Days Taken" android:textSize="11sp" android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+                        <View android:layout_width="1dp" android:layout_height="40dp"
+                            android:background="#E0E0E0" android:layout_gravity="center_vertical" />
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                            <TextView android:id="@+id/tv_days_missed" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="0"
+                                android:textSize="24sp" android:textStyle="bold" android:textColor="#EF5350" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Days Missed" android:textSize="11sp" android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+                        <View android:layout_width="1dp" android:layout_height="40dp"
+                            android:background="#E0E0E0" android:layout_gravity="center_vertical" />
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                            <TextView android:id="@+id/tv_adherence" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="0%"
+                                android:textSize="24sp" android:textStyle="bold" android:textColor="@color/text_primary" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Adherence" android:textSize="11sp" android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

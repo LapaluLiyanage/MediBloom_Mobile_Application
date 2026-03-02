@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MediBloom</string>
+    <string name="tagline">Your gentle health companion</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="add_medicine">Add Medicine</string>
+    <string name="save">Save Medicine</string>
+    <string name="mark_taken">Mark Taken</string>
+    <string name="home">Home</string>
+    <string name="calendar">Calendar</string>
+    <string name="history">History</string>
+    <string name="assistant">Assistant</string>
+    <string name="mood">Mood</string>
+    <string name="profile">Profile</string>
+</resources>

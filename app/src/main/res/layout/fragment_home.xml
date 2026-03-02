@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_header_gradient"
+                android:orientation="vertical"
+                android:paddingTop="48dp"
+                android:paddingBottom="20dp"
+                android:paddingHorizontal="20dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:id="@+id/tv_user_name" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="Hello, User 👋"
+                            android:textColor="#CCFFFFFF" android:textSize="13sp" />
+                        <TextView android:id="@+id/tv_greeting" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="Good Morning 🌸"
+                            android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <ImageView android:layout_width="40dp" android:layout_height="40dp"
+                        android:src="@drawable/ic_notification" android:tint="@color/white"
+                        android:background="@drawable/bg_white_circle_20" android:padding="8dp" />
+                </LinearLayout>
+
+                <!-- Progress -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:background="@drawable/bg_progress_pill" android:orientation="vertical"
+                    android:padding="14dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Today's Progress"
+                            android:textColor="@color/white" android:textSize="12sp" />
+                        <TextView android:id="@+id/tv_progress_text" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="0/0 done"
+                            android:textColor="@color/white" android:textSize="12sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <ProgressBar android:id="@+id/progress_bar"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent" android:layout_height="8dp"
+                        android:max="100" android:progressTint="@color/white"
+                        android:progressBackgroundTint="#4DFFFFFF" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Quick Stats -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginTop="16dp"
+                app:cardCornerRadius="20dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:padding="20dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_taken_count" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="0"
+                            android:textSize="26sp" android:textStyle="bold" android:textColor="#4CAF50" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Taken" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                    <View android:layout_width="1dp" android:layout_height="40dp"
+                        android:background="#E0E0E0" android:layout_gravity="center_vertical" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_missed_count" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="0"
+                            android:textSize="26sp" android:textStyle="bold" android:textColor="#EF5350" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Missed" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                    <View android:layout_width="1dp" android:layout_height="40dp"
+                        android:background="#E0E0E0" android:layout_gravity="center_vertical" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_upcoming_count" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="0"
+                            android:textSize="26sp" android:textStyle="bold" android:textColor="@color/primary_blue_dark" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Upcoming" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Section Title -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp" android:layout_marginTop="20dp"
+                android:layout_marginBottom="8dp" android:text="Today's Reminders"
+                android:textSize="16sp" android:textStyle="bold" android:textColor="@color/text_primary" />
+
+            <!-- Reminders RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_reminders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/primary_pink_dark"
+        app:tint="@color/white" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

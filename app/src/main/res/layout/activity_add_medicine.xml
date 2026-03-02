@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="40dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_header_gradient"
+            android:paddingTop="48dp"
+            android:paddingBottom="20dp"
+            android:paddingHorizontal="20dp">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_media_previous"
+                android:tint="@color/white"
+                android:background="@drawable/bg_white_circle_20"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="Add Medicine"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Form content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Medicine Name -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardCornerRadius="20dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Medicine Name" android:textSize="14sp" android:textStyle="bold"
+                        android:textColor="@color/text_primary" android:layout_marginBottom="8dp" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="e.g., Aspirin"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_medicine_name" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:inputType="textCapWords" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Dosage and Stock -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardCornerRadius="20dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Dosage" android:textSize="14sp" android:textStyle="bold"
+                        android:textColor="@color/text_primary" android:layout_marginBottom="8dp" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="e.g., 500mg or 1 tablet" android:layout_marginBottom="16dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_dosage" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Stock Amount" android:textSize="14sp" android:textStyle="bold"
+                        android:textColor="@color/text_primary" android:layout_marginBottom="8dp" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Number of tablets"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_stock" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Reminder Times -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardCornerRadius="20dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Reminder Times"
+                            android:textSize="14sp" android:textStyle="bold" android:textColor="@color/text_primary" />
+                        <TextView android:id="@+id/btn_add_time" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="+ Add Time"
+                            android:textColor="@color/primary_pink_dark" android:textSize="13sp"
+                            android:padding="4dp" />
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/ll_reminder_times" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="vertical" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Dates -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardCornerRadius="20dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Start Date" android:textSize="14sp" android:textStyle="bold"
+                        android:textColor="@color/text_primary" android:layout_marginBottom="8dp" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Select start date" android:layout_marginBottom="16dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_start_date" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:focusable="false"
+                            android:clickable="true" android:inputType="none" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="End Date (Optional)" android:textSize="14sp" android:textStyle="bold"
+                        android:textColor="@color/text_primary" android:layout_marginBottom="8dp" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Select end date"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_end_date" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:focusable="false"
+                            android:clickable="true" android:inputType="none" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Repeat -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp" app:cardCornerRadius="20dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Repeat" android:textSize="14sp" android:textStyle="bold"
+                        android:textColor="@color/text_primary" android:layout_marginBottom="12dp" />
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chip_group_repeat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+                        <com.google.android.material.chip.Chip android:id="@+id/chip_daily"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Daily"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            app:chipBackgroundColor="@color/chip_repeat_selector" />
+                        <com.google.android.material.chip.Chip android:id="@+id/chip_weekly"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Weekly"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            app:chipBackgroundColor="@color/chip_repeat_selector" />
+                        <com.google.android.material.chip.Chip android:id="@+id/chip_custom"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Custom"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            app:chipBackgroundColor="@color/chip_repeat_selector" />
+                    </com.google.android.material.chip.ChipGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Save Button -->
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Save Medicine"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:background="@drawable/bg_button_gradient"
+                android:stateListAnimator="@null" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+

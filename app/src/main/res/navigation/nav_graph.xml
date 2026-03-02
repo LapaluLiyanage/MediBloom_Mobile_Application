@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.medibloomappv2.ui.home.HomeFragment"
+        android:label="Home" />
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.medibloomappv2.ui.calendar.CalendarFragment"
+        android:label="Calendar" />
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.medibloomappv2.ui.history.HistoryFragment"
+        android:label="History" />
+
+    <fragment
+        android:id="@+id/assistantFragment"
+        android:name="com.example.medibloomappv2.ui.assistant.AssistantFragment"
+        android:label="Assistant" />
+
+    <fragment
+        android:id="@+id/moodFragment"
+        android:name="com.example.medibloomappv2.ui.mood.MoodFragment"
+        android:label="Mood" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.medibloomappv2.ui.profile.ProfileFragment"
+        android:label="Profile" />
+
+</navigation>
+
