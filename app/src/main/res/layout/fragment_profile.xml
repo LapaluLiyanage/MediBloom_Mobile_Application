@@ -126,11 +126,17 @@
             </androidx.cardview.widget.CardView>
 
             <!-- Logout -->
-            <Button android:id="@+id/btn_logout"
-                android:layout_width="match_parent" android:layout_height="56dp"
-                android:text="🚪 Logout" android:textColor="#EF5350" android:textSize="15sp"
-                android:background="@drawable/bg_logout_btn" android:stateListAnimator="@null"
-                android:layout_marginBottom="8dp" />
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_logout_btn"
+                android:stateListAnimator="@null"
+                android:text="🚪 Logout"
+                android:textColor="#EF5350"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:gravity="center" android:text="MediBloom v1.0.0"
