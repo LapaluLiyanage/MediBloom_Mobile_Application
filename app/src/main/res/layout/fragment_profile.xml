@@ -17,20 +17,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_header_gradient"
-            android:orientation="vertical"
             android:gravity="bottom"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
             android:paddingTop="52dp"
-            android:paddingBottom="68dp"
-            android:paddingHorizontal="20dp">
+            android:paddingBottom="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:letterSpacing="0.01"
                 android:text="Profile &amp; Settings"
                 android:textColor="@color/white"
                 android:textSize="22sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.01" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -52,12 +52,12 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="top"
                     android:orientation="vertical"
                     android:paddingStart="20dp"
+                    android:paddingTop="54dp"
                     android:paddingEnd="20dp"
-                    android:paddingBottom="20dp"
-                    android:paddingTop="24dp"
-                    android:gravity="top">
+                    android:paddingBottom="20dp">
 
                     <!-- Avatar row -->
                     <LinearLayout
@@ -126,11 +126,11 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
                         android:layout_marginTop="16dp"
-                        android:orientation="horizontal"
-                        android:paddingVertical="4dp"
                         android:gravity="center"
-                        android:layout_gravity="bottom">
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
 
                         <!-- Streak -->
                         <LinearLayout
