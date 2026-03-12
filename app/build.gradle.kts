@@ -1,6 +1,15 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.google.services)
+    // google-services plugin removed – Firebase is no longer used (auth is Room DB)
+}
+
+// ── Read local.properties (project.findProperty only reads gradle.properties) ──
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.inputStream().use { stream -> localProperties.load(stream) }
 }
 
 android {
@@ -17,7 +26,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // Read Gemini API key from local.properties
-        val geminiApiKey: String = project.findProperty("GEMINI_API_KEY") as String? ?: ""
+        val geminiApiKey: String = localProperties.getProperty("GEMINI_API_KEY") ?: ""
         buildConfigField("String", "GEMINI_API_KEY", "\"$geminiApiKey\"")
     }
 
@@ -62,10 +71,6 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
 
-    // Firebase
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.auth)
-    implementation(libs.firebase.firestore)
 
     // Retrofit + OkHttp (Gemini API)
     implementation(libs.retrofit)

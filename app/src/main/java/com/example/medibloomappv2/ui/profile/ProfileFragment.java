@@ -93,10 +93,14 @@ public class ProfileFragment extends Fragment {
                 .setTitle("Logout")
                 .setMessage("Are you sure you want to logout?")
                 .setPositiveButton("Logout", (d, w) -> {
+                    if (!isAdded() || getActivity() == null) return;
+                    // Synchronously clear user session (commit, not apply)
                     prefs.clearUserData();
-                    Intent intent = new Intent(requireContext(), LoginActivity.class);
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                    requireActivity().startActivity(intent);
+                    // Finish the host activity to remove it from the back-stack
+                    requireActivity().finish();
                 })
                 .setNegativeButton("Cancel", null)
                 .show();

@@ -77,11 +77,13 @@ public class PreferenceManager {
     }
 
     public void clearUserData() {
+        // commit() is synchronous – prefs are cleared BEFORE navigation,
+        // preventing the race-condition where isLoggedIn() still returns true.
         prefs.edit()
                 .remove(KEY_USER_ID)
                 .remove(KEY_USER_NAME)
                 .remove(KEY_USER_EMAIL)
-                .apply();
+                .commit();
     }
 
     public boolean isLoggedIn() {

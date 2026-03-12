@@ -1,5 +1,6 @@
 package com.example.medibloomappv2.data.remote.model;
 
+import java.util.Collections;
 import java.util.List;
 
 public class GeminiRequest {
@@ -17,7 +18,7 @@ public class GeminiRequest {
 
         public Content(String role, String text) {
             this.role = role;
-            this.parts = List.of(new Part(text));
+            this.parts = Collections.singletonList(new Part(text));
         }
     }
 
@@ -33,8 +34,7 @@ public class GeminiRequest {
         public List<Part> parts;
 
         public SystemInstruction(String text) {
-            this.parts = List.of(new Part(text));
+            this.parts = Collections.singletonList(new Part(text));
         }
     }
 }
-

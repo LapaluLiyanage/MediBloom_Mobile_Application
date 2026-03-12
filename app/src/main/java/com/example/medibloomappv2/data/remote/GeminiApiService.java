@@ -10,10 +10,10 @@ import retrofit2.http.Query;
 
 public interface GeminiApiService {
 
-    @POST("v1beta/models/gemini-2.0-flash:generateContent")
+    // gemini-2.0-flash-001 = stable pinned version (avoids silent model deprecations)
+    @POST("v1beta/models/gemini-2.0-flash-001:generateContent")
     Call<GeminiResponse> generateContent(
             @Query("key") String apiKey,
             @Body GeminiRequest request
     );
 }
-

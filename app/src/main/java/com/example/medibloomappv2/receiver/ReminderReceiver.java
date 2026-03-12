@@ -5,6 +5,8 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import androidx.core.app.NotificationCompat;
 
@@ -40,15 +42,20 @@ public class ReminderReceiver extends BroadcastReceiver {
                 context, (int) (logId + 10000), takenIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
+        // Full-colour logo for the notification body (large icon slot)
+        Bitmap logoBitmap = BitmapFactory.decodeResource(
+                context.getResources(), R.drawable.medibloom_logo);
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NotificationHelper.CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_notification)
+                .setSmallIcon(R.drawable.ic_notification)   // monochrome bloom — status bar
+                .setLargeIcon(logoBitmap)                   // full-colour logo — notification body
                 .setContentTitle("💊 Time for " + medicineName)
                 .setContentText("Take your " + dosage + " now")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true)
                 .setContentIntent(openPending)
                 .addAction(R.drawable.ic_check, "Mark Taken", takenPending)
-                .setColor(0xFFF8BBD0);
+                .setColor(0xFFF48FB1);
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (manager != null) {

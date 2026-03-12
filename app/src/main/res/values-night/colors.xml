@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Dark-mode overrides.
+    Only the SEMANTIC colours that need to change are listed here.
+    Brand colours (pinks, blues, purples) stay the same in both modes.
+    @color/white stays white – it is only used for text ON coloured/gradient backgrounds.
+-->
+<resources>
+    <!-- Page & window background -->
+    <color name="background">#121218</color>
+
+    <!-- Card / sheet surfaces -->
+    <color name="surface">#1E1E2A</color>
+    <color name="surface_variant">#28283A</color>
+
+    <!-- Dividers / separators -->
+    <color name="divider_color">#2A2A3A</color>
+
+    <!-- Text -->
+    <color name="text_primary">#F0F0F5</color>
+    <color name="text_secondary">#AAAACC</color>
+    <color name="text_hint">#666688</color>
+
+    <!-- Chip backgrounds -->
+    <color name="chip_suggestion_bg">#2A2040</color>
+    <color name="chip_taken_bg">#1A2E1A</color>
+    <color name="chip_missed_bg">#2E1A1A</color>
+    <color name="chip_upcoming_bg">#1A2040</color>
+</resources>
+

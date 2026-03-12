@@ -17,34 +17,37 @@ import com.example.medibloomappv2.R;
 public class OnboardingPageFragment extends Fragment {
 
     private static final String ARG_TITLE = "title";
-    private static final String ARG_DESC = "desc";
-    private static final String ARG_ICON = "icon";
+    private static final String ARG_DESC  = "desc";
+    private static final String ARG_ICON  = "icon";
     private static final String ARG_COLOR = "color";
 
-    public static OnboardingPageFragment newInstance(String title, String desc, int icon, int color) {
+    public static OnboardingPageFragment newInstance(
+            String title, String desc, int icon, int color) {
         OnboardingPageFragment f = new OnboardingPageFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, title);
-        args.putString(ARG_DESC, desc);
-        args.putInt(ARG_ICON, icon);
-        args.putInt(ARG_COLOR, color);
+        args.putString(ARG_DESC,  desc);
+        args.putInt(ARG_ICON,     icon);
+        args.putInt(ARG_COLOR,    color);
         f.setArguments(args);
         return f;
     }
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_onboarding_page, container, false);
 
         Bundle args = getArguments();
         if (args == null) return view;
 
-        View iconCircle = view.findViewById(R.id.icon_circle);
-        ImageView ivIcon = view.findViewById(R.id.iv_icon);
-        TextView tvTitle = view.findViewById(R.id.tv_title);
-        TextView tvDesc = view.findViewById(R.id.tv_description);
+        // icon_circle is now a FrameLayout — tinting still works the same way
+        View    iconCircle = view.findViewById(R.id.icon_circle);
+        ImageView ivIcon   = view.findViewById(R.id.iv_icon);
+        TextView tvTitle   = view.findViewById(R.id.tv_title);
+        TextView tvDesc    = view.findViewById(R.id.tv_description);
 
         tvTitle.setText(args.getString(ARG_TITLE));
         tvDesc.setText(args.getString(ARG_DESC));
@@ -52,7 +55,7 @@ public class OnboardingPageFragment extends Fragment {
         iconCircle.setBackgroundTintList(
                 ContextCompat.getColorStateList(requireContext(), args.getInt(ARG_COLOR)));
 
-        // Animate icon circle
+        // Entrance animation — circle scales up + fades in
         iconCircle.setAlpha(0f);
         iconCircle.setScaleX(0.5f);
         iconCircle.setScaleY(0.5f);
@@ -60,7 +63,12 @@ public class OnboardingPageFragment extends Fragment {
                 .alpha(1f).scaleX(1f).scaleY(1f)
                 .setDuration(500).setStartDelay(100).start();
 
+        // Icon fades in slightly after the circle
+        ivIcon.setAlpha(0f);
+        ivIcon.animate()
+                .alpha(1f)
+                .setDuration(400).setStartDelay(300).start();
+
         return view;
     }
 }
-

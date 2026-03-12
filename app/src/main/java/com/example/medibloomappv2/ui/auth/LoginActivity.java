@@ -26,6 +26,14 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // If the user already has an active session, skip the login screen entirely.
+        PreferenceManager prefs = new PreferenceManager(this);
+        if (prefs.isLoggedIn()) {
+            goToMain();
+            return;
+        }
+
         setContentView(R.layout.activity_login);
 
         authRepository = new AuthRepository(this);
@@ -98,5 +106,6 @@ public class LoginActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        finish();
     }
 }

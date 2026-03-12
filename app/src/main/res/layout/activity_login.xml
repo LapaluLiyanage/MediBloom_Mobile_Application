@@ -15,11 +15,16 @@
         android:paddingBottom="40dp">
 
         <!-- Logo -->
-        <View
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/medibloom_logo"
             android:background="@drawable/bg_logo_circle"
-            android:layout_marginBottom="8dp" />
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="MediBloom Logo"
+            android:layout_marginBottom="8dp"
+            android:elevation="6dp" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -26,6 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         ImageView logo = findViewById(R.id.iv_logo);
         TextView appName = findViewById(R.id.tv_app_name);
         TextView tagline = findViewById(R.id.tv_tagline);
+        TextView version = findViewById(R.id.tv_version);
 
         // Animate logo: scale + rotation
         logo.setAlpha(0f);
@@ -42,7 +43,7 @@ public class SplashActivity extends AppCompatActivity {
                         android.R.interpolator.anticipate_overshoot))
                 .start();
 
-        // Animate text
+        // Animate app name: slide up + fade in
         appName.setAlpha(0f);
         appName.setTranslationY(40f);
         appName.animate()
@@ -52,11 +53,22 @@ public class SplashActivity extends AppCompatActivity {
                 .setStartDelay(500)
                 .start();
 
+        // Animate tagline: slide up + fade in
         tagline.setAlpha(0f);
+        tagline.setTranslationY(24f);
         tagline.animate()
                 .alpha(1f)
+                .translationY(0f)
                 .setDuration(600)
-                .setStartDelay(800)
+                .setStartDelay(700)
+                .start();
+
+        // Animate version: fade in from bottom
+        version.setAlpha(0f);
+        version.animate()
+                .alpha(1f)
+                .setDuration(500)
+                .setStartDelay(1000)
                 .start();
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
@@ -77,6 +89,3 @@ public class SplashActivity extends AppCompatActivity {
         }, 2500);
     }
 }
-
-
-

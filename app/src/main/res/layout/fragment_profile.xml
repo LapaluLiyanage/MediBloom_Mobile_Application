@@ -1,148 +1,332 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/background">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="vertical" android:paddingBottom="32dp">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="40dp">
+
+        <!-- ── Gradient Header ──────────────────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/bg_header_gradient"
-            android:paddingTop="48dp" android:paddingBottom="64dp" android:paddingHorizontal="20dp">
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Profile &amp; Settings" android:textColor="@color/white"
-                android:textSize="22sp" android:textStyle="bold" />
+            android:orientation="vertical"
+            android:gravity="bottom"
+            android:paddingTop="52dp"
+            android:paddingBottom="68dp"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profile &amp; Settings"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.01" />
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:paddingHorizontal="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
 
-            <!-- Avatar Card (overlapping header) -->
-            <androidx.cardview.widget.CardView android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_marginTop="-48dp"
-                android:layout_marginBottom="12dp" app:cardCornerRadius="20dp" app:cardElevation="8dp">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:orientation="vertical" android:padding="20dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical">
-                        <LinearLayout android:layout_width="80dp" android:layout_height="80dp"
-                            android:background="@drawable/bg_header_gradient"
-                            android:gravity="center">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="🌸" android:textSize="40sp" />
-                        </LinearLayout>
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
-                            <TextView android:id="@+id/tv_user_name" android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" android:text="User"
-                                android:textSize="18sp" android:textStyle="bold" android:textColor="@color/text_primary" />
-                            <TextView android:id="@+id/tv_user_email" android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" android:text="user@example.com"
-                                android:textSize="13sp" android:textColor="@color/text_secondary" android:layout_marginTop="2dp" />
+            <!-- ── Avatar Card (overlaps header) ─────────────────── -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-52dp"
+                android:layout_marginBottom="14dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Avatar row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <!-- ✅ Circular avatar — oval gradient + logo -->
+                        <FrameLayout
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/bg_assistant_avatar">
+
+                            <ImageView
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="MediBloom Logo"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/medibloom_logo" />
+                        </FrameLayout>
+
+                        <!-- Name + email -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_user_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="User"
+                                android:textColor="@color/text_primary"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_user_email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="user@example.com"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
 
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginBottom="2dp"
+                        android:background="@color/divider_color" />
+
                     <!-- Stats row -->
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:layout_marginTop="16dp"
-                        android:paddingTop="16dp">
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
-                            <TextView android:id="@+id/tv_streak_stat" android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" android:text="0"
-                                android:textSize="20sp" android:textStyle="bold" android:textColor="@color/text_primary" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="Streak" android:textSize="11sp" android:textColor="@color/text_secondary" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <!-- Streak -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_streak_stat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/primary_pink_dark"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Streak"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp" />
                         </LinearLayout>
-                        <View android:layout_width="1dp" android:layout_height="40dp"
-                            android:background="#E0E0E0" android:layout_gravity="center_vertical" />
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
-                            <TextView android:id="@+id/tv_adherence_stat" android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" android:text="0%"
-                                android:textSize="20sp" android:textStyle="bold" android:textColor="@color/text_primary" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="Adherence" android:textSize="11sp" android:textColor="@color/text_secondary" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/divider_color" />
+
+                        <!-- Adherence -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_adherence_stat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textColor="@color/accent_green"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Adherence"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp" />
                         </LinearLayout>
-                        <View android:layout_width="1dp" android:layout_height="40dp"
-                            android:background="#E0E0E0" android:layout_gravity="center_vertical" />
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
-                            <TextView android:id="@+id/tv_med_count_stat" android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" android:text="0"
-                                android:textSize="20sp" android:textStyle="bold" android:textColor="@color/text_primary" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="Medicines" android:textSize="11sp" android:textColor="@color/text_secondary" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/divider_color" />
+
+                        <!-- Medicines -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_med_count_stat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/primary_blue_dark"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Medicines"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Notification Settings -->
-            <androidx.cardview.widget.CardView android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_marginBottom="12dp"
-                app:cardCornerRadius="20dp" app:cardElevation="4dp">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:orientation="vertical" android:padding="20dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="NOTIFICATIONS" android:textSize="11sp" android:textStyle="bold"
-                        android:textColor="@color/text_secondary" android:letterSpacing="0.1"
-                        android:layout_marginBottom="12dp" />
+            <!-- ── Notifications Card ────────────────────────────── -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/surface">
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="8dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Push Notifications"
-                            android:textSize="14sp" android:textColor="@color/text_primary" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Section header -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔔  NOTIFICATIONS"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- Push Notifications -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Push Notifications"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_primary" />
                         <com.google.android.material.switchmaterial.SwitchMaterial
-                            android:id="@+id/switch_notifications" android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:checked="true" />
+                            android:id="@+id/switch_notifications"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider_color" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="8dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Reminder Sound"
-                            android:textSize="14sp" android:textColor="@color/text_primary" />
+                    <!-- Reminder Sound -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Reminder Sound"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_primary" />
                         <com.google.android.material.switchmaterial.SwitchMaterial
-                            android:id="@+id/switch_sound" android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:checked="true" />
+                            android:id="@+id/switch_sound"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider_color" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="8dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Dark Mode"
-                            android:textSize="14sp" android:textColor="@color/text_primary" />
+                    <!-- Dark Mode -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Dark Mode"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_primary" />
                         <com.google.android.material.switchmaterial.SwitchMaterial
-                            android:id="@+id/switch_dark_mode" android:layout_width="wrap_content"
+                            android:id="@+id/switch_dark_mode"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Logout -->
+            <!-- ── Logout Button ─────────────────────────────────── -->
             <Button
                 android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
                 android:background="@drawable/bg_logout_btn"
                 android:stateListAnimator="@null"
-                android:text="🚪 Logout"
+                android:text="🚪  Logout"
                 android:textColor="#EF5350"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:gravity="center" android:text="MediBloom v1.0.0"
-                android:textSize="12sp" android:textColor="@color/text_hint" android:paddingVertical="8dp" />
+            <!-- Version -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="MediBloom v1.0.0"
+                android:textSize="12sp"
+                android:textColor="@color/text_hint"
+                android:paddingVertical="12dp" />
 
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
-
