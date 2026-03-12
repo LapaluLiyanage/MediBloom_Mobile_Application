@@ -50,7 +50,7 @@ public class ProfileFragment extends Fragment {
 
         // Load stats
         repository.getCurrentStreak(streak ->
-                requireActivity().runOnUiThread(() -> tvStreak.setText(streak + " Days")));
+                requireActivity().runOnUiThread(() -> tvStreak.setText(String.valueOf(streak))));
 
         String userId = prefs.getUserId() != null ? prefs.getUserId() : "local";
         repository.getMedicineCount(userId).observe(getViewLifecycleOwner(),
